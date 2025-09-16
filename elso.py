@@ -21,4 +21,4 @@ jatek_szam = 0
 nem_talaltdb = 0
 
 #kitalálandó szám beállítása
-kitalalando-szam = 
+kitalalando_szam = input()
