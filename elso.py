@@ -24,21 +24,32 @@ nem_talaltdb = 0
 #kitalálandó szám beállítása
 kitalalando_szam = szamok[random.randint(0, len(szamok))]
 
-tipp = int(input("Kérek egy egész számot [1-100]: "))
+tipp = input("Kérek egy egész számot [1-100]: ")
 
-if (tipp == kitalalando_szam):
-    print("De jó neked")
-elif(tipp < kitalalando_szam):
+while(not tipp.isdecimal()):
+    print("Egész számmal játsz!")
+    tipp = input("Kérek egy egész számot [1-100]: ")
+
+tipp = int(tipp)
+
+
+if(tipp < kitalalando_szam):
     print("A szám nagyob!")
-else:
+elif(tipp > kitalalando_szam):
     print("A szám kicib!")
     
 while(tipp != kitalalando_szam):
-    tipp = int(input("Kérek egy egész számot [1-100]: "))
+    tipp = input("Kérek egy egész számot [1-100]: ")
     
-    if (tipp == kitalalando_szam):
-        print("De jó neked")
-    elif(tipp < kitalalando_szam):
+    while(not tipp.isdecimal()):
+        print("Egész számmal játsz!")
+        tipp = input("Kérek egy egész számot [1-100]: ")
+
+    tipp = int(tipp)
+    
+    if(tipp < kitalalando_szam):
         print("A szám nagyob!")
-    else:
+    elif(tipp > kitalalando_szam):
         print("A szám kicib!")
+    
+print("Ügyes vagy!")
