@@ -14,10 +14,10 @@ except FileExistsError:
 '''
    1. [Megszámolás] [X]
    2. [Eldöntés 1] [X]
-      [Eldöntés 2]
-   3. [Kiválasztás]
-   4. [Keresés]
-   5. [Sorozatszámítás, összegzés]
+      [Eldöntés 2] [X]
+   3. [Kiválasztás] [X]
+   4. [Keresés] [X]
+   5. [Sorozatszámítás, összegzés] [X]
    6. [Minimum/Maximum kiválasztás]
    
    7. [Másolás]
@@ -72,10 +72,30 @@ i=1
 while i<len(verseny_adatok) and "Pierre Gasly" not in verseny_adatok[i]:
     i+=1
 if i<len(verseny_adatok):
-    print("Pierre Gasly", verseny_adatok[i].split(",")[2].strip()),"csapatba van!   :)")
+    print("Pierre Gasly", verseny_adatok[i].split(",")[2].strip()),"csapatba van!   :)"
 else:
     print("Pierre Gasly nics!")
     
+#5. Számolja ki a vesenyzők pontszámainak átlagát
 
+S=0
+osszeg=0
+for i in range(1, len(verseny_adatok)):
+    S+=int(verseny_adatok[i].split(",")[1])
+print(f"a versenyzők pontszámainak átlaga: {S/len(verseny_adatok)-1}")
+    
+#6. Kiszerezte a legtöbb pontot? pontok lacikám pontok
+maxi=1
+max=verseny_adatok[i].split(",")[1]
+for i in range(1,len(verseny_adatok)):
+    if verseny_adatok[i]>verseny_adatok[maxi]:
+        maxi=i
+        max=verseny_adatok[i].split(",")[1]
+print(f"")
+    
+    
+    
+    
+    
+    
 print("DOOOOOOOOMMMMMAAAAAAAA!!")
-
