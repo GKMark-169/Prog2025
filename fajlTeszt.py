@@ -87,15 +87,57 @@ print(f"a versenyzők pontszámainak átlaga: {S/len(verseny_adatok)-1}")
 #6. Kiszerezte a legtöbb pontot? pontok lacikám pontok
 maxi=1
 max=verseny_adatok[i].split(",")[1]
-for i in range(1,len(verseny_adatok)):
+for i in range(2,len(verseny_adatok)):
     if verseny_adatok[i]>verseny_adatok[maxi]:
         maxi=i
         max=verseny_adatok[i].split(",")[1]
-print(f"")
-    
-    
-    
-    
-    
-    
-print("DOOOOOOOOMMMMMAAAAAAAA!!")
+print(f"A legkevesebb ponttal rendelkező versenyző: {verseny_adatok[maxi].split(",")[1]}")
+ 
+#7. Kinek van a legkevesebb pontja?  
+mini=1
+min=verseny_adatok[i].split(",")[1]
+for i in range(2,len(verseny_adatok)):
+    if verseny_adatok[i]<verseny_adatok[min]:
+        mini=i
+        min=verseny_adatok[i].split(",")[1]
+print(f"A legkevesebb ponttal rendelkező versenyző: {verseny_adatok[mini].split(",")[0]}")
+
+#8.Kik vannak a McLarenbe?
+db1=0
+masik=[]
+for i in range(1,len(verseny_adatok)):
+    if verseny_adatok[i].split(",")[2].strip()=='McLaren':
+        db1+=1
+        masik.append(verseny_adatok[i].split(",")[0])
+print(f"Ők vannak a McLaren-nél: {verseny_adatok[i].split(",")[0]}")
+
+#9.kinek van és kinek nics pontja?
+dby=0
+dbx=0
+y=[]
+x=[]
+for i in range(1,len(verseny_adatok)):
+    if(int(verseny_adatok[i].split(",")[1]>0)):
+        dby=+1
+        y.append(verseny_adatok[i].split(",")[0])
+    else:
+        dbx=+1
+        x.append(verseny_adatok[i].split(",")[0])
+print(f"Van pontja: {y}")
+print(f"Nincs pontja: {x}")
+
+#10.
+for i in range(1, len(verseny_adatok)-1):
+    min=i
+    minertek=int(verseny_adatok[i].split(",")[1])
+    for j in range(i+1, len(verseny_adatok)):
+        if(int(verseny_adatok[j].split(",")[1])<int(verseny_adatok[min].split(",")[1])):
+            min=j
+            minertek=int(verseny_adatok[j].split(",")[1])
+    s=verseny_adatok[i]
+    verseny_adatok[i]=verseny_adatok[min]
+    verseny_adatok[min]=s
+for i in verseny_adatok:
+    print(i)
+ 
+print(":|")
