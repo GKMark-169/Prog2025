@@ -1,16 +1,51 @@
 
 verseny_adatok=[]
 
-try:
-    with open("F1-2024dec.csv", encoding="utf-8") as fajl:
-        verseny_adatok= fajl.readlines()
+
+intputfajl="F1-2024dec.csv"
+
+
+def adat_beolvasas(fajlnev):
+    try:
+        with open(fajlnev, encoding="utf-8") as fajl:
+            global verseny_adatok
+            verseny_adatok= fajl.readlines()
 
         
-except Exception as ex:
-    print("Cs! : Hiba oka:{ex}")
-except FileExistsError: 
-    print("Gebasz van baszod!!!!")
+    except Exception as ex:
+        print("Cs! : Hiba oka:{ex}")
+    except FileExistsError: 
+        print("Gebasz van baszod!!!!")
+    
+#ELJÁRÁS
+def pontatlanok():
+    # 1. Hány versenyző nem szerzett még pontot?
+    db=0
+    for i in range(1, len(verseny_adatok)):
+        if (int(verseny_adatok[i].split(",")[1])==0):
+            db=db+1
 
+    print(f"{db} versenyző nem szerzett még pontott. \n")
+
+#FÜGGVÉNY
+def versenyzo_kereso(nev):
+    i = 0
+    while(i<len(verseny_adatok) and nev not in verseny_adatok[i]):
+        i+=1
+    if (i<len(verseny_adatok)):
+        return True
+    else:
+        returnFalse
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
 '''
    1. [Megszámolás] [X]
    2. [Eldöntés 1] [X]
@@ -32,7 +67,7 @@ except FileExistsError:
       [Minimum kiválasztásos]
 '''
 #------------------------------------------------------------------------------
-# 1. Hány versenyző nem szerzett még pontot?
+""" # 1. Hány versenyző nem szerzett még pontot?
 db=0
 for i in range(1, len(verseny_adatok)):
     if (int(verseny_adatok[i].split(",")[1])==0):
@@ -138,6 +173,20 @@ for i in range(1, len(verseny_adatok)-1):
     verseny_adatok[i]=verseny_adatok[min]
     verseny_adatok[min]=s
 for i in verseny_adatok:
-    print(i)
- 
+    print(i) """
+
+#PROGRAM
+adat_beolvasas(intputfajl)
+
+pontatlanok()
+van_e=versenyzo_kereso("Fernando")
+if van_e:
+    print("Van Fernando")
+else:
+    print("Nics Fernando")
+
+
+
+
+
 print(":|")
