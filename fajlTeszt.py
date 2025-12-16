@@ -35,13 +35,40 @@ def versenyzo_kereso(nev):
     if (i<len(verseny_adatok)):
         return True
     else:
-        returnFalse
-        
-
-        
-        
-        
-        
+        return False
+#ELJÁRÁS
+def csapat(nev):
+    #4.Melyik csapatban volt Pierre Gasly?
+    i=1
+    while i<len(verseny_adatok) and "Pierre Gasly" not in verseny_adatok[i]:
+        i+=1
+         
+    if i<len(verseny_adatok):
+        print(nev,verseny_adatok[i].split(",")[2].strip()),"csapatba van!   :)"
+    else:
+        print("Pierre Gasly nics!")
+#FÜGGVÉNY
+def csapat_tagok(csapatnev):
+    #8.Kik vannak a McLarenbe?
+    db1=0
+    masik=[]
+    
+    for i in range(2,len(verseny_adatok)):
+        if verseny_adatok[i].split(",")[2].strip()==csapatnev:
+            db1+=1
+            masik.append(verseny_adatok[i].split(",")[0])
+            
+    return masik
+#ELJÁRÁS
+def pont():
+    # 2.B Mindenki szerzett-e már 90 pontott?????????????
+    i=1
+    while (i<len(verseny_adatok) and int(verseny_adatok[i].split(",")[1]))>90:
+        i=+1
+    if i==len(verseny_adatok):
+        return True
+    else:
+        return False      
         
         
         
@@ -185,8 +212,26 @@ if van_e:
 else:
     print("Nics Fernando")
 
+#4.F eljárás hívás
+csapat("Pierre Gasly")
 
+#8.F függvény hívás
+csapat_nev="McLaren"
+tag_lista=csapat_tagok(csapat_nev)
 
+print(f"Ezek a személyek vannak a {csapat_nev} istállójában: ")
+i=1
+for nev in tag_lista:
+    print(f"{i}. {nev:>30}")
+    i+=1
+#2.B, 3.F, 5.F ELJÁRÁSsal
 
+#2.B
+pont=verseny_adatok[1]
+if pont:
+    print("igen")
+else:
+    print("nem") 
 
+#6.F 2*, 9.F FÜGGVÉNYnyel
 print(":|")

@@ -1,0 +1,15 @@
+Maximális pontszám: 1400
+név;elmélet tz;gyakorlat tz;össz pont
+Alexander Python;108;308;1393
+butagypo;108;316;1518
+Debrecen;89;223;918
+Fogo;70;218;668
+Huámigel;67;254;1141
+kürtöskali;89;161;747
+Lajos;89;180;516
+nemtudod1;89;249;1214
+palack20;83;230;594
+retrorádio;105;222;1063
+skardos45624;76;123;920
+szivattyú;111;357;1411
+tuki;99;226;903
